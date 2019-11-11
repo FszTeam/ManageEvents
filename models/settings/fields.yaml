@@ -1,0 +1,66 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+tabs:
+  fields:
+
+    sharethis:
+      label: fszteam.manageevents::lang.backend.settings.fields.sharethis
+      tab: fszteam.manageevents::lang.backend.settings.fields.tabs.social
+
+    facebook:
+      label: fszteam.manageevents::lang.backend.settings.fields.facebook
+      tab: fszteam.manageevents::lang.backend.settings.fields.tabs.social
+      type: checkbox
+
+    twitter:
+      label: fszteam.manageevents::lang.backend.settings.fields.twitter
+      tab: fszteam.manageevents::lang.backend.settings.fields.tabs.social
+      type: checkbox
+
+    google:
+      label: fszteam.manageevents::lang.backend.settings.fields.google
+      tab: fszteam.manageevents::lang.backend.settings.fields.tabs.social
+      type: checkbox
+
+    pe_date_generic:
+      tab: fszteam.manageevents::lang.backend.settings.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.settings.fields.date_generic
+      comment: fszteam.manageevents::lang.backend.settings.fields.date_php_description
+      placeholder: 'Y-m-d'
+
+    pe_date_full:
+      tab: fszteam.manageevents::lang.backend.settings.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.settings.fields.date_full
+      comment: fszteam.manageevents::lang.backend.settings.fields.date_php_description
+      placeholder: 'Y-m-d g:i a'
+
+    pe_date_spoken:
+      tab: fszteam.manageevents::lang.backend.settings.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.settings.fields.date_spoken
+      comment: fszteam.manageevents::lang.backend.settings.fields.date_php_description
+      placeholder: 'l M jS, Y'
+
+    pe_date_time:
+      tab: fszteam.manageevents::lang.backend.settings.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.settings.fields.date_time
+      comment: fszteam.manageevents::lang.backend.settings.fields.date_php_description
+      placeholder: 'g:i a'
+
+    pe_date_datepicker:
+      tab: fszteam.manageevents::lang.backend.settings.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.settings.fields.date_picker
+      comment: fszteam.manageevents::lang.backend.settings.fields.date_jquery_description
+      placeholder: 'yy-mm-dd'
+
+    pe_date_backend:
+      tab: fszteam.manageevents::lang.backend.settings.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.settings.fields.date_backend
+      comment: fszteam.manageevents::lang.backend.settings.fields.date_moment_description
+      placeholder: 'MM/DD/YY'
+
+    pe_dropoff:
+      tab: Event Settings
+      label: 'Past events fall off of list views after:'
+      placeholder: '00:30:00'

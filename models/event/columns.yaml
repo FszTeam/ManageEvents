@@ -1,0 +1,25 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+  title:
+    label: fszteam.manageevents::lang.backend.events.columns.title
+    searchable: true
+
+  author:
+    label: fszteam.manageevents::lang.backend.events.columns.author
+    relation: user
+    select: login
+
+  calendars:
+    label: fszteam.manageevents::lang.backend.events.columns.calendar
+    relation: calendar
+    select: name
+
+  multidate:
+    label: fszteam.manageevents::lang.backend.events.columns.date
+    type: partial
+    path: ~/plugins/fszteam/manageevents/models/event/_multidate_render.htm
+    searchable: true

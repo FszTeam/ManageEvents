@@ -1,0 +1,12 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    name:
+        label: fszteam.manageevents::lang.backend.calendars.columns.name
+    color:
+        type: partial
+        path: ~/plugins/fszteam/manageevents/models/calendar/_color_column.htm
+        label: fszteam.manageevents::lang.backend.calendars.columns.color

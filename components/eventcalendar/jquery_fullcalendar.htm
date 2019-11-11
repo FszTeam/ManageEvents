@@ -1,0 +1,50 @@
+<br/>
+<div id='calendar' data-request="getMonthsEvents" data-request-success="console.log(data)"></div>
+<!-- {% put scripts %} -->
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+    // page is now ready, initialize the calendar...
+    $('#calendar').fullCalendar({
+        // put your options and callbacks here
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,basicWeek,agendaDay,agendaList'
+        },
+        timeFormat: 'h:mm a\n',
+        displayEventEnd: true,
+        firstDay: 0,
+        showAgendaButton: true,
+        editable: false,
+        events: function(start, end, timezone, callback) {
+            $.request('{{__SELF__}}::onGetMonthEvents', {
+                data: {
+                    start: start.toJSON(),
+                    end: end.toJSON()
+                },
+                success: function(data){
+                    var events = $.parseJSON(data.result);
+                    callback(events);
+                }
+            })
+        },
+        eventRender: function(event, element) {
+            if (event.description) {
+                element.qtip({
+                    content: event.description,
+                    position: {
+                        target: 'mouse',
+                        adjust: {
+                            mouse: false  // Can be omitted (e.g. default behaviour)
+                        }
+                    },
+                    style: { classes: 'qtip-dark qtip-shadow qtip-rounded qtip-tipsy' }
+                });
+            }
+        }
+    })
+});
+//]]>
+</script>
+<!-- {% endput %} -->

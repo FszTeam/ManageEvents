@@ -1,0 +1,52 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('rainlab/blog/posts') ?>"><?= e(trans('fszteam.manageevents::lang.backend.calendars.form.title')) ?></a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <?= Form::open(['class'=>'layout-item stretch layout-column']) ?>
+
+        <?= $this->formRender() ?>
+
+        <div class="form-buttons layout-item fix">
+            <div class="loading-indicator-container">
+                <button
+                    type="submit"
+                    data-request="onSave"
+                    data-request-data="redirect:0"
+                    data-hotkey="ctrl+s"
+                    data-hotkey-mac="cmd+s"
+                    data-load-indicator="Saving Calendar..."
+                    class="btn btn-primary">
+                    <?= e(trans('fszteam.manageevents::lang.backend.form.save')) ?>
+                </button>
+                <button
+                    type="button"
+                    data-request="onSave"
+                    data-request-data="close:1"
+                    data-hotkey="ctrl+enter"
+                    data-hotkey-mac="cmd+enter"
+                    data-load-indicator="Saving Calendar..."
+                    class="btn btn-default">
+                    <?= e(trans('fszteam.manageevents::lang.backend.form.saveclose')) ?>
+                </button>
+                <button
+                    type="button"
+                    class="oc-icon-trash-o btn-icon danger pull-right"
+                    data-request="onDelete"
+                    data-load-indicator="Deleting Calendar..."
+                    data-request-confirm="<?= e(trans('fszteam.manageevents::lang.backend.calendars.form.confirmdelete')) ?>">
+                </button>
+
+                <span class="btn-text"><?= e(trans('fszteam.manageevents::lang.backend.form.or')) ?> <a href="<?= Backend::url('fszteam/manageevents/calendars') ?>"><?= e(trans('fszteam.manageevents::lang.backend.form.cancel')) ?></a></span>
+            </div>
+        </div>
+    <?= Form::close() ?>
+
+<?php else: ?>
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p><a href="<?= Backend::url('fszteam/manageevents/calendars') ?>" class="btn btn-default"><?= e(trans('fszteam.manageevents::lang.backend.calendars.form.back')) ?></a></p>
+<?php endif ?>

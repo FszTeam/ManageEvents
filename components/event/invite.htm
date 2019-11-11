@@ -1,0 +1,42 @@
+	<section class="pe-invite-content" id="modal-invite" tabindex="-1"
+	        role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+
+	    <div class="pe-modal-inner">
+	        <header id="pe-modal-label">
+	        	<h2 id="pe-modal-label">{{'Invite A Friend'|_}}</h2>
+	        </header>
+	        <div class="pe-modal-content">
+	        	<div class="form-group">
+				    <label for="inviteInputEmail">{{'Email address'|_}}</label>
+				    <input type="email" name="invite_email" class="form-control" id="inviteInputEmail" placeholder="Enter Email" value="">
+				</div>
+				<div class="form-group">
+				    <label for="exampleInputEmail1">{{'Invite Message'|_}}</label>
+				    <textarea class="form-control" rows="6" disabled>{{'Hey, Check this out.'|_}}
+
+{{'I\'m going to this event & thought you might want to go!'|_}}
+___________________________________________________________
+
+{{ event_item.title }}
+{% if event_item.grouped > 0 %}{{ __SELF__.getItemDates(event_item.grouped_id,event_item.event_id)|raw|replace({'<br/>':"\n"}) }}{% else %}{{ event_item.event_date|date("M dS") }} | {% if event_item.allday > 0 %}All Day{% else %}{{ event_item.sttime|date("g:i a") }} - {{event_item.entime|date("g:i a") }}{% endif %}{% endif %}
+
+{{ url }}
+					</textarea>
+				</div>
+	        </div>
+	        <footer>
+	        	<p>
+					<button class="submit-action btn btn-primary"
+					data-request = "{{ __SELF__ }}::onEmailFriend"
+    				data-request-data = "invite_email: $('#inviteInputEmail').val()"
+    				data-request-update ="'{{ __SELF__ }}::message':'#email_sent'"
+    				data-request-success = "window.location.hash = 'invite_sent';$('#inviteInputEmail').val('');">{{'Send Invite'|_}}</button>
+
+					<a href="#!" id="close_invite_dialog" class="close-action btn btn-danger" title="Close this modal" data-dismiss="modal">{{'Close'|_}}</a>
+				</p>
+	        </footer>
+	    </div>
+
+	    <a href="#!" class="pe-modal-close" title="Close this modal" data-close="Close"
+	        data-dismiss="modal">×</a>
+	</section>

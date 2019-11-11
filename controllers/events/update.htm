@@ -1,0 +1,69 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('fszteam/manageevents/events') ?>"><?= e(trans('fszteam.manageevents::lang.backend.events.form.title')) ?></a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <?php Block::put('form-contents') ?>
+
+        <?= $this->formRenderPrimaryTabs() ?>
+
+        <div class="form-buttons layout-item fix">
+            <div class="loading-indicator-container">
+                <button
+                    type="submit"
+                    data-request="onSave"
+                    data-request-data="redirect:0"
+                    data-hotkey="ctrl+s"
+                    data-hotkey-mac="cmd+s"
+                    data-load-indicator="Saving Event..."
+                    class="btn btn-primary">
+                    <?= e(trans('fszteam.manageevents::lang.backend.form.save')) ?>
+                </button>
+                <button
+                    type="button"
+                    data-request="onSave"
+                    data-request-data="close:1"
+                    data-hotkey="ctrl+enter"
+                    data-hotkey-mac="cmd+enter"
+                    data-load-indicator="Saving Event..."
+                    class="btn btn-default">
+                    <?= e(trans('fszteam.manageevents::lang.backend.form.saveclose')) ?>
+                </button>
+                <span class="btn-text">
+                    <?= e(trans('fszteam.manageevents::lang.backend.form.or')) ?> <a href="<?= Backend::url('fszteam/manageevents/events') ?>"><?= e(trans('fszteam.manageevents::lang.backend.form.cancel')) ?></a>
+                </span>
+                <button
+                    type="button"
+                    class="oc-icon-trash-o btn-icon danger pull-right"
+                    data-request="onDelete"
+                    data-load-indicator="Deleting Event..."
+                    data-request-confirm="<?= e(trans('fszteam.manageevents::lang.backend.events.form.confirmdelete')) ?>">
+                </button>
+            </div>
+        </div>
+
+    <?php Block::endPut() ?>
+
+    <?php Block::put('form-sidebar') ?>
+        <div class="tabs"><?= $this->formRenderSecondaryTabs() ?></div>
+    <?php Block::endPut() ?>
+
+    <?php Block::put('body') ?>
+        <?= Form::open(['class'=>'layout stretch']) ?>
+            <?= $this->makeLayout('form-with-sidebar') ?>
+        <?= Form::close() ?>
+    <?php Block::endPut() ?>
+
+<?php else: ?>
+    <div class="padded-container">
+        <div class="control-breadcrumb">
+            <?= Block::placeholder('breadcrumb') ?>
+        </div>
+        <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+        <p><a href="<?= Backend::url('fszteam/manageevents/events') ?>" class="btn btn-default"><?= e(trans('fszteam.manageevents::lang.backend.events.form.back')) ?></a></p>
+    </div>
+<?php endif ?>

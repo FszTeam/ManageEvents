@@ -1,0 +1,117 @@
+<?php $id = rand(0,2000000); ?>
+<?php if ($this->previewMode): ?>
+    <div class="form-control"><?= $value ?></div>
+<?php else: ?>
+	<a href="javascipt:void(0);" class="btn btn-success add_date_<?= $id  ?>" style="float: right;" data-id="<?= $id  ?>"><i class="icon-white-o oc-icon-plus-circle"></i> Add More</a>
+
+	<div id="multidate_dates_<?= $id  ?>" class="multidates_dates">
+		<div class="form-inline multidate-input multidate-input_<?= $id  ?>">
+		    <div
+		        id="<?= $this->getId() ?>"
+		        class="multidate"
+		        data-control="datepicker"
+		        data-show-time="<?= $showTime ? 'true' : 'false' ?>"
+		        data-min-date="<?= $minDate ?>"
+		        data-max-date="<?= $maxDate ?>">
+		        <input
+		            type="text"
+		            class="multidate-picker form-control align-left input-small"
+		            autocomplete="off"
+                    data-datepicker />
+                    <input
+                        type="hidden"
+                        id="<?= $this->getId('input') ?>"
+                        name="<?= $name ?>[date][]"
+                        value="<?= $value['date'][0] ?>"
+                        data-datetime-value
+                        />
+
+				<?php if ($this->mode != 'date'): ?>
+				<input
+		            type="text"
+		            id="<?= $this->getId('input') ?>-sttime"
+		            name="<?= $name ?>[sttime][]"
+		            value="<?= $value['sttime'][0] ?>"
+		            class="form-control align-left timepicker"/>
+
+				<input
+		            type="text"
+		            id="<?= $this->getId('input') ?>-entime"
+		            name="<?= $name ?>[entime][]"
+		            value="<?= $value['entime'][0] ?>"
+		            class="form-control align-left timepicker"/>
+		        <?php endif ?>
+				<a href="javascript:void(0);" onClick="$(this).parent().remove();"><i class="icon-trash-o"></i></a>
+			</div>
+		</div>
+		<?php if(is_array($value['date']) && count($value['date']) > 1){ $i = 0; ?>
+			<?php foreach($value['date'] as $date){ ?>
+				<?php if($i > 0){ ?>
+					<div class="form-inline multidate-input">
+					    <div
+					        id="<?= $this->getId() ?>"
+					        class="multidate field-datepicker"
+					        data-control="datepicker"
+					        data-show-time="<?= $showTime ? 'true' : 'false' ?>"
+					        data-min-date="<?= $minDate ?>"
+					        data-max-date="<?= $maxDate ?>">
+					        <input
+					            type="text"
+					            class="multidate-picker form-control align-left input-small"
+					            autocomplete="off"
+                                data-datepicker />
+                                <input
+                                    type="hidden"
+                                    id="<?= $this->getId('input') ?>"
+    					            name="<?= $name ?>[date][]"
+    					            value="<?= $value['date'][$i] ?>"
+                                    data-datetime-value
+                                    />
+							<?php if ($this->mode != 'date'): ?>
+							<input
+					            type="text"
+					            id="<?= $this->getId('input') ?>-sttime"
+					            name="<?= $name ?>[sttime][]"
+					            value="<?= $value['sttime'][$i] ?>"
+					            class="form-control align-left timepicker"/>
+
+							<input
+					            type="text"
+					            id="<?= $this->getId('input') ?>-entime"
+					            name="<?= $name ?>[entime][]"
+					            value="<?= $value['entime'][$i] ?>"
+					            class="form-control align-left timepicker"/>
+					        <?php endif ?>
+							<a href="javascript:void(0);" onClick="$(this).parent().remove();"><i class="icon-trash-o"></i></a>
+						</div>
+					</div>
+					<?php } ?>
+					<?php $i++; ?>
+			<?php } ?>
+		<?php } ?>
+	</div>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.timepicker').timepicker({
+			timeFormat: "<?= $PE_DATE_TIME ?>"
+		});
+		$( ".multidates_dates").each(function(){
+				$(this).find(".icon-trash-o" ).first().hide();
+		});
+		$('.add_date_<?= $id  ?>').click(function(e){
+			var temp = $( ".multidate-input_<?= $id  ?>").first().clone();
+			temp.find('.multidate-picker').val('');
+			temp.find('.timepicker').val('');
+			temp.find('.icon-trash-o').show();
+			$('#multidate_dates_<?= $id  ?>').append(temp);
+
+			$('.timepicker').timepicker({
+				timeFormat: "<?= $PE_DATE_TIME ?>"
+			});
+			$('[data-control="datepicker"]').each(function(){ $(this).datePicker({ format: "<?= $PE_DATE_BACKEND ?>" }); });
+			return false;
+		});
+	});
+	$('[data-control="datepicker"]').each(function(){ $(this).datePicker({ format: "<?= $PE_DATE_BACKEND ?>" }); });
+	</script>
+<?php endif ?>

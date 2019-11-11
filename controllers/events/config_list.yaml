@@ -1,0 +1,33 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: ~/plugins/fszteam/manageevents/models/event/columns.yaml
+
+# Model Class name
+modelClass: FszTeam\ManageEvents\Models\Event
+
+# List Title
+title: Manage Events
+
+# Link URL for each record
+recordUrl: fszteam/manageevents/events/update/:id
+
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Records to display per page
+recordsPerPage: 25
+
+# Display checkboxes next to each record
+showCheckboxes: yes
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: list_toolbar
+
+    # Search widget configuration
+    search:
+        prompt: backend::lang.list.search_prompt

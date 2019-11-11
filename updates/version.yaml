@@ -1,0 +1,124 @@
+1.0.1:
+    - Initialize plugin
+    - create_events_table.php
+    - create_calendars_table.php
+    - seed_all_tables.php
+1.0.6:
+    - save and close route fix
+1.0.8:
+    - update generated dates table
+    - add_user_generateddates.php
+1.0.9:
+    - event delete missing icon fixed
+1.1.0:
+    - permissions namespacing
+    - generated dates now delete when parent event is deleted
+    - new duplicate events added to event list backend
+    - new delete events added to event list  backend
+1.1.1:
+    - refactoring
+    - default author view bug fix
+1.1.2:
+    - added event author id update/save to afterSave
+1.2.0:
+    - correction to MultiDateHelper logic
+1.2.1:
+    - smallcal update
+1.3.0:
+    - Static Pages/Menus Integration
+    - Calendars & Event Lists can now dynamically be filtered by calendar
+1.3.1:
+    - Color Picker Rename
+1.3.2:
+    - order_by fix
+1.3.3:
+    - check for user auth fix
+1.3.4:
+    - added permissions tab to settings
+2.0.0:
+    - NOT COMPATIBLE WITH BETA VERSIONS
+2.0.1:
+    - multidate create event bug fix
+2.0.2:
+    - pagination bug fix
+2.1.0:
+    - multidate save bugfix
+2.2.0:
+    - multidate save revert
+2.3.0:
+    - rework non recuring dates
+2.4.1:
+    - add event location info
+    - add_location_info.php
+2.5.0:
+    - all views and backend models and forms have been translation wrapped
+    - translation en example file added
+2.5.1:
+    - correct missing twig tags in event list views
+2.5.2:
+    - add multi-delete option to list view
+2.5.3:
+    - add generatedDates delete on bulk event delete
+    - !!! updates for core release
+    - update to daily recurence logic
+    - list views now properly start with current day
+2.5.4:
+    - bug fix for single events sameDay check
+2.5.5:
+    - bug fix for multidate datepicker breakage
+2.5.6:
+    - bug fix for yearly dates credit JasperJ
+2.5.7:
+    - auto-copy translations from parent model to generated dates if translate is installed
+    - change event refs to event_item for readability when accessing parent event model
+    - clean up generated date deltion
+2.5.8:
+    - corrected down db issue
+    - bug fix for slug error
+2.5.9:
+    - update to jQueryFullCalendar
+    - update to qtip
+    - include additional resources for those that want to include
+2.6.0:
+    - addition of event list falloff
+2.6.1:
+    - remove extraneous timestamp text
+2.6.2:
+    - further fixes for groupby logic and json decode
+2.6.3:
+    - correct json decode issue for backend
+2.7.0:
+    - update generated dates table
+    - change all generated date references to use event_date instead of date
+    - update_generated_date_fieldname.php
+2.7.1:
+    - correct missed invites filter
+2.7.2:
+    - remove exclude date defaulting
+2.7.3:
+    - corrected generated dates time save bug
+2.7.4:
+    - controller path correction
+    - add euro time format to multidate time picker
+2.7.5:
+    - backend datepicker formatting added
+    - backend timepicker cleanup
+    - new setting for backend datepicker momentjs formatting
+    - localization improvements
+2.7.6:
+    - backend settings permissions added
+2.8.0:
+    - correct snake_case naming for generated dates
+2.8.1:
+    - more snake-case corrections.
+2.8.2:
+    - correct responsive view date tooltip
+2.9.0:
+    - improve generated_dates table naming
+3.0.0:
+    - correction to generated dates translation credit rupert24306
+    - NEW past dates option in list views see docs
+3.0.1:
+    - new Month Highlights list vew added
+3.1.0:
+    - correct db migrations to never have date field

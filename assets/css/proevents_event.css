@@ -1,0 +1,24 @@
+#event_navigation {
+  float: right;
+  display: inline-block;
+  margin-top: 22px;
+}
+#event_times {
+  font-size: 16px;
+  line-height: 24px;
+}
+#event_social {
+  margin: 22px 0;
+  display: block;
+}
+#event_social .stMainServices {
+  height: 32px;
+}
+#event_social .stHBubble {
+  height: 22px;
+}
+@media only screen and (max-width: 768px) {
+  #event_navigation {
+    float: none;
+  }
+}

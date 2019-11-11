@@ -1,0 +1,28 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+  title:
+    label: fszteam.manageevents::lang.backend.generated.columns.title
+    searchable: true
+
+  event_date:
+    label: fszteam.manageevents::lang.backend.generated.columns.date
+    searchable: true
+
+  sttime:
+    label: fszteam.manageevents::lang.backend.generated.columns.sttime
+
+  entime:
+    label: fszteam.manageevents::lang.backend.generated.columns.entime
+
+  event_qty:
+    label: fszteam.manageevents::lang.backend.generated.columns.qty
+
+  status:
+    type: partial
+    path: ~/plugins/fszteam/manageevents/models/generatedDates/_status_column.htm
+    label: fszteam.manageevents::lang.backend.generated.columns.status
+    searchable: true

@@ -1,0 +1,18 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: Calendar
+form: ~/plugins/fszteam/manageevents/models/calendar/fields.yaml
+modelClass: FszTeam\ManageEvents\Models\Calendar
+defaultRedirect: fszteam/manageevents/calendars
+
+create:
+    title: fszteam.manageevents::lang.backend.calendars.toolbar.create
+    redirect: fszteam/manageevents/calendars/update/:id
+    redirectClose: fszteam/manageevents/calendars
+
+update:
+    title: fszteam.manageevents::lang.backend.calendars.toolbar.edit
+    redirect: fszteam/manageevents/calendars
+    redirectClose: fszteam/manageevents/calendars

@@ -1,0 +1,12 @@
+<?php
+$class = '';
+$color = '';
+if($value == 'available'){
+    $color = 'green';
+    $class = 'available';
+}elseif($value == 'booked'){
+    $color = 'red';
+    $class = 'booked';
+}
+?>
+<span style="color: <?=$color?>;"><?=$value?></span>

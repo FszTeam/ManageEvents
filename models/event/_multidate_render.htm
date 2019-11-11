@@ -1,0 +1,15 @@
+<?php
+$value = (!is_array($value)) ? json_decode($value,true) : $value;
+if($value['date']){
+	foreach($value['date'] as $key=>$date){
+		echo date($record->date_formatting,strtotime($date));
+		if(!$record->allday){
+			echo ': '.date($record->time_formatting,strtotime($value['sttime'][$key])).' - '.date($record->time_formatting,strtotime($value['entime'][$key]));
+		}
+		echo '<br />';
+	}
+}
+if($record->recur != 'none'){
+	echo $record->recur .' thru '.date($record->date_formatting,strtotime($record->thru));
+}
+?>

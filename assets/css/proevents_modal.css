@@ -1,0 +1,254 @@
+/**
+ * CSS pe-modal
+ * pe-modal as reusable module
+ * http://drublic.github.com/css-pe-modal
+ *
+ * @author Hans Christian Reinl - @drublic
+ * @version 1.0.4
+ *
+ * Usage:
+ *    selector {
+ *        @extend %pe-modal;
+ *    }
+ */
+/*
+ * Configuration
+ */
+
+.has-overlay {
+  overflow: hidden;
+}
+.has-overlay > body {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.pe-invite-content {
+  -webkit-transform: translate(0, 100%);
+  -moz-transform: translate(0, 100%);
+  -o-transform: translate(0, 100%);
+  -ms-transform: translate(0, 100%);
+  transform: translate(0, 100%);
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  opacity: 0;
+  color: #222;
+  line-height: 1.3;
+  display: none\9;
+}
+.pe-invite-content:target {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  opacity: 1;
+}
+.is-active.pe-invite-content {
+  display: block\9;
+}
+.pe-invite-content:target {
+  display: block\9;
+}
+.pe-invite-content .pe-modal-inner {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  z-index: 20;
+  margin-left: -245px;
+  width: 450px;
+  overflow-x: hidden;
+  border-radius: 2px;
+  background: #fff;
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+.pe-invite-content .pe-modal-inner > img,
+.pe-invite-content .pe-modal-inner > video,
+.pe-invite-content .pe-modal-inner > iframe {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+}
+.pe-invite-content .pe-modal-inner > img {
+  width: auto;
+  max-width: 100%;
+}
+.pe-invite-content header {
+  border-bottom: 1px solid #dddddd;
+  padding: 0 1.2em;
+}
+.pe-invite-content header > h2 {
+  margin: 0.5em 0;
+}
+.pe-invite-content .pe-modal-content {
+  max-height: 400px;
+  max-height: 70vh;
+  border-bottom: 1px solid #dddddd;
+  padding: 15px 1.2em;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.pe-invite-content .pe-modal-content > * {
+  max-width: 100%;
+}
+.pe-invite-content footer {
+  border-top: 1px solid white;
+  padding: 0 1.2em 18px;
+  background: #f0f0f0;
+  border-radius: 2px;
+  height: 20%;
+}
+
+.pe-invite-content .close-action {
+  margin-top: 12px;
+}
+
+.pe-invite-content .submit-action {
+  margin-top: 12px;
+  float:right;
+}
+
+.pe-invite-content .pe-modal-close {
+  display: block;
+  text-indent: -100px;
+  overflow: hidden;
+}
+.pe-invite-content .pe-modal-close:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAEElEQVR42gEFAPr/AAAAAMwA0QDNTiUx4gAAAABJRU5ErkJggg==");
+}
+.pe-invite-content .pe-modal-close:after {
+  content: '\00d7';
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  z-index: 20;
+  margin-left: 285px;
+  background: #fff;
+  border-radius: 2px;
+  padding: 2px 8px;
+  font-size: 1.2em;
+  text-decoration: none;
+  text-indent: 0;
+}
+@media screen and (max-width: 690px) {
+  .pe-invite-content .pe-modal-inner {
+    width: auto;
+    left: 20px;
+    right: 20px;
+    margin-left: 0;
+  }
+  .pe-invite-content .pe-modal-close {
+    left: auto;
+    right: 33px;
+    margin-left: 0;
+  }
+  .pe-invite-content .pe-modal-close:after {
+    margin-left: 40%;
+  }
+}
+@media screen and (max-width: 30em) {
+  .pe-invite-content {
+    -webkit-transform: translate(0, 400px);
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    -webkit-transition: -webkit-transform .25s ease-in-out, opacity 1ms .25s;
+    -moz-transition: -moz-transform .25s ease-in-out, opacity 1ms .25s;
+    -o-transition: -o-transform .25s ease-in-out, opacity 1ms .25s;
+    -ms-transition: -ms-transform .25s ease-in-out, opacity 1ms .25s;
+    transition: transform .25s ease-in-out, opacity 1ms .25s;
+    display: block;
+    height: 100%;
+    bottom: auto;
+  }
+  .pe-invite-content:target {
+    -webkit-transition: -webkit-transform .25s ease-in-out;
+    -moz-transition: -moz-transform .25s ease-in-out;
+    -o-transition: -o-transform .25s ease-in-out;
+    -ms-transition: -ms-transform .25s ease-in-out;
+    transition: transform .25s ease-in-out;
+  }
+  .pe-invite-content:before {
+    background-color: #27aae2;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#27aae2), to(#1c9cd3));
+    background-image: -webkit-linear-gradient(top, #27aae2, #1c9cd3);
+    background-image: -moz-linear-gradient(top, #27aae2, #1c9cd3);
+    background-image: -o-linear-gradient(top, #27aae2, #1c9cd3);
+    background-image: linear-gradient(to bottom, #27aae2, #1c9cd3);
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
+    height: 3em;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  }
+  .pe-invite-content .pe-modal-inner {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 3em;
+    height: 100%;
+    overflow: scroll;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .pe-invite-content .pe-modal-content {
+    max-height: none;
+    height: 70%;
+  }
+  .pe-invite-content .pe-modal-close {
+    right: auto;
+    text-decoration: none;
+  }
+  .pe-invite-content .pe-modal-close:before {
+    display: none;
+  }
+  .pe-invite-content .pe-modal-close:after {
+    content: attr(data-close);
+    top: 0.4em;
+    left: 1em;
+    z-index: 40;
+    margin-left: 0;
+    font-size: 1em;
+    padding: 0.5em 1em;
+  }
+}
+@media screen and (max-height: 46em) and (min-width: 30em) {
+  .pe-invite-content .pe-modal-content {
+    max-height: 340px;
+    max-height: 50vh;
+  }
+}
+@media screen and (max-height: 36em) and (min-width: 30em) {
+  .pe-invite-content .pe-modal-content {
+    max-height: 265px;
+    max-height: 40vh;
+  }
+}
+
+@media screen and (min-width: 30em) {
+  .pe-invite-content {
+    -webkit-transition: opacity 0.4s;
+    -o-transition: opacity 0.4s;
+    transition: opacity 0.4s;
+  }
+}

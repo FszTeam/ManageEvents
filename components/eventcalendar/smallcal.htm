@@ -1,0 +1,56 @@
+<div class="calendar" id="small_cal_load">
+	<table  class='small_cal' style="width: 100%;">
+		<thead>
+			<tr>
+				<th class='select'>
+					<a class="button"
+						data-request = "{{ __SELF__ }}::onPrevMonth"
+		    			data-request-update = "'{{__SELF__}}::smallcal_ajax': '#small_cal_ajax_load'"
+		    			data-request-data = "cal_date: $('#curent_date').val()"
+		    			data-request-success = "$('#small_cal_year').html($('#cal_title').val());"
+		    			class = "button white submo"
+					>
+						<span class="icon-circle-arrow-left"></span>
+					</a>
+				</th>
+				<th colspan=5 id="small_cal_year" align='center'>{{ cal_date|date('F') }} {{year}}</th>
+				<th>
+					<a class="button" style="float: right;"
+						data-request = "{{ __SELF__ }}::onNextMonth"
+		    			data-request-update = "'{{__SELF__}}::smallcal_ajax': '#small_cal_ajax_load'"
+		    			data-request-data = "cal_date: $('#curent_date').val()"
+		    			data-request-success = "$('#small_cal_year').html($('#cal_title').val());"
+		    			class = "button white addmo"
+					>
+						<span class="icon-circle-arrow-right"></span>
+					</a>
+				</th>
+			</tr>
+
+			{% if euro_cal == 1 %}
+				<tr class="header">
+			        <td>{{'Mon'|_}}</td>
+			        <td>{{'Tue'|_}}</td>
+			        <td>{{'Wed'|_}}</td>
+			        <td>{{'Thu'|_}}</td>
+			        <td>{{'Fri'|_}}</td>
+			        <td>{{'Sat'|_}}</td>
+			        <td>{{'Sun'|_}}</td>
+			    </tr>
+			{% else %}
+			    <tr class="header">
+			    	<td>{{'Sun'|_}}</td>
+			        <td>{{'Mon'|_}}</td>
+			        <td>{{'Tue'|_}}</td>
+			        <td>{{'Wed'|_}}</td>
+			        <td>{{'Thu'|_}}</td>
+			        <td>{{'Fri'|_}}</td>
+			        <td>{{'Sat'|_}}</td>
+			    </tr>
+			{% endif %}
+		</thead>
+		<tbody id="small_cal_ajax_load">
+			{% partial  __SELF__ ~ "::smallcal_ajax" %}
+		</tbody>
+	</table>
+</div>

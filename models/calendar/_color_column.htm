@@ -1,0 +1,5 @@
+<?php if(!$value){?>
+	<?= e(trans('fszteam.manageevents::lang.backend.calendars.columns.nocolor')) ?>
+<?php }else{ ?>
+	<span style="display: inline-block;height: 22px;width:22px;background-color: #<?=$value?>;"></span> #<?=$value?>
+<?php } ?>

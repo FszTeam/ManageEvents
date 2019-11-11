@@ -1,0 +1,6 @@
+{% flash %}
+    <div class="alert alert-{{ type == 'error' ? 'danger' : type }}">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    </div>
+{% endflash %}

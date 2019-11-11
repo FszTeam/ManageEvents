@@ -1,0 +1,33 @@
+subject = "You've Been Invited!"
+==
+
+Hey, Check this out.
+
+I'm going to this event & thought you might want to go!
+___________________________________________________________
+
+{{ title }} 
+
+{{ details|raw|replace({'<br/>':"\n"}) }}
+
+{{ url }}
+
+
+---
+This is an automatic message. Do not reply to it.
+
+==
+
+<p>Hey, Check this out.</p>
+
+<p>I'm going to this event & thought you might want to go!</p>
+<hr />
+
+<h3>{{ title }}</h3>
+<p>
+{{ details }}
+</p>
+<a href="{{ url }}">{{ url }}</a>
+
+<hr />
+<strong>This is an automatic message. Do not reply to it.</strong>

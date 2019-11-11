@@ -1,0 +1,18 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: Event
+form: ~/plugins/fszteam/manageevents/models/event/fields.yaml
+modelClass: FszTeam\ManageEvents\Models\Event
+default-redirect: fszteam/manageevents/events
+
+create:
+    title: fszteam.manageevents::lang.backend.events.toolbar.create
+    redirect: fszteam/manageevents/events/update/:id
+    redirectClose: fszteam/manageevents/events
+
+update:
+    title: fszteam.manageevents::lang.backend.events.toolbar.edit
+    redirect: fszteam/manageevents/events
+    redirectClose: fszteam/manageevents/events

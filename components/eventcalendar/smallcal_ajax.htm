@@ -1,0 +1,109 @@
+
+
+	<tr>
+		<input type="hidden" id="curent_date" value="{{ cal_date }}" />
+		<input type="hidden" id="cal_title" value="{{ cal_title }}" />
+		<input type="hidden" id="year" value="{{ year }}" />
+		<input type="hidden" id="month" value="{{ month }}" />
+		{% set daycount = 1 %}
+
+		{% if blank != 0 %}
+			{% for i in 1..blank %}
+			    <td class='cal_blank'></td>
+			    {% set daycount = daycount + 1 %}
+			{% endfor %}
+		{% endif %}
+
+		{% for i in 1..days_in_month %}
+			{% set daynum = year ~ '-' ~ month ~ '-' ~ i %}
+			<td  valign="top" class="">
+				<div class="cal_day">
+					{% set isEvent = __SELF__.isEvent(daynum|date("Y-m-d")) %}
+					{% if isEvent > 0 %}
+						<div class="daynum hasevent">
+						    
+						    <a type="button" data-toggle="modal" data-target="#myModal_{{i}}"><h4><u>{{i}}</u></h4></a>
+
+
+                            <!-- Modal -->
+                            <div id="myModal_{{i}}" class="modal fade" role="dialog">
+                              <div class="modal-dialog" style=" margin: 20vh auto 0px auto">
+                            
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-body">
+                                    <ul>
+										{% for event_item in events %}
+											{% if daynum|date("Y-m-d") == event_item.event_date|date("Y-m-d") %}
+												<li><a href="{{ eventpage|page({'event_slug': event_item.title|replace({' ':'-'})|lower,'event_id': event_item.id }) }}/" rel="pe_tooltip">{{ event_item.title }}</a>{% if event_item.status != '' %}<small class="event_{{event_item.status}}"> - {{event_item.status |_}}</small>{% endif %}</h4>
+												&nbsp;&nbsp;{{ event_item.event_date|date("M dS") }} -
+												{% if event_item.allday > 0 %}
+													{{'All Day'|_}}
+												{% else %}
+													{{ event_item.sttime|date("g:i a") }}  - {{ event_item.entime|date("g:i a") }}
+												{% endif %}
+												</li>
+											{% endif %}
+										{% endfor %}            							
+                                    </ul>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-wa" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                            
+                              </div>
+                            </div>							
+							<!--<a href="#modal-details-{{i}}" lass="call-modal">{{i}}</a>-->
+							
+<!--							<section class="pe-invite-content" id="modal-details-{{i}}" tabindex="-1"
+						        role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+								<div class="pe-modal-inner">
+							        <header id="pe-modal-label"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+							        	<h2 id="pe-modal-label">{{'Event Details'|_}}</h2>
+							        </header>
+							        <div class="pe-modal-content">
+										{% for event_item in events %}
+											{% if daynum|date("Y-m-d") == event_item.event_date|date("Y-m-d") %}
+												<h4><a href="{{ eventpage|page({'event_slug': event_item.title|replace({' ':'-'})|lower,'event_id': event_item.id }) }}/" rel="pe_tooltip">{{ event_item.title }}</a>{% if event_item.status != '' %}<small class="event_{{event_item.status}}"> - {{event_item.status |_}}</small>{% endif %}</h4>
+												<h5>{{ event_item.event_date|date("M dS") }} -
+												{% if event_item.allday > 0 %}
+													{{'All Day'|_}}
+												{% else %}
+													{{ event_item.sttime|date("g:i a") }}  - {{ event_item.entime|date("g:i a") }}
+												{% endif %}
+												</h5>
+											{% endif %}
+										{% endfor %}
+							        </div>
+							        <footer>
+							        	<p>
+											<a href="#!" class="close-action btn btn-danger" title="Close this modal" data-dismiss="modal">{{'Close'|_}}</a>
+										</p>
+							        </footer>
+							    </div>
+
+			    				<a href="#!" class="pe-modal-close" title="Close this modal" data-close="Close"data-dismiss="modal">×</a>
+							</section>-->
+						</div>
+					{% else %}
+						{{i}}
+					{% endif %}
+				</div>
+			</td>
+			{% set daycount = daycount + 1 %}
+			{% if daycount > 7 %}
+				</tr><tr>
+				{% set daycount = 1 %}
+			{% endif %}
+		{% endfor %}
+
+		{% if (daycount - 7) > 0 %}
+			{% for i in i..(daycount - 7) %}
+				<td class='cal_blank'></td>
+				{% set daycount = daycount + 1 %}
+			{% endfor %}
+		{% elseif (daycount - 7) == 0 %}
+			<td class='cal_blank'></td>
+		{% endif %}
+	</tr>

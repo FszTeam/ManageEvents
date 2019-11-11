@@ -1,0 +1,18 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: Generated Dates
+form: ~/plugins/fszteam/manageevents/models/generateddates/fields.yaml
+modelClass: FszTeam\ManageEvents\Models\GeneratedDate
+defaultRedirect: fszteam/manageevents/generateddates
+
+create:
+    title: fszteam.manageevents::lang.backend.generated.toolbar.create
+    redirect: fszteam/manageevents/generateddates/update/:id
+    redirectClose: fszteam/manageevents/generateddates
+
+update:
+    title: fszteam.manageevents::lang.backend.generated.toolbar.edit
+    redirect: fszteam/manageevents/generateddates
+    redirectClose: fszteam/manageevents/generateddates

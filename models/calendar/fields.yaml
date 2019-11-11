@@ -1,0 +1,19 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+  name:
+    label: fszteam.manageevents::lang.backend.calendars.fields.name
+    span: left
+
+  slug:
+    label: fszteam.manageevents::lang.backend.calendars.fields.slug
+    span: right
+    attributes:
+        data-input-preset: 'input[name="Calendar[name]"]'
+
+  color:
+    label: fszteam.manageevents::lang.backend.calendars.fields.color
+    type: rcolorpicker

@@ -1,0 +1,147 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+tabs:
+  fields:
+
+    title:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.content
+      label: fszteam.manageevents::lang.backend.events.fields.title
+
+    content:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.content
+      label: fszteam.manageevents::lang.backend.events.fields.content
+      type: richeditor
+      size: huge
+
+    excerpt:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.content
+      label: fszteam.manageevents::lang.backend.events.fields.excerpt
+      type: textarea
+      size: small
+
+    location_name:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.additional
+      label: fszteam.manageevents::lang.backend.events.fields.locname
+      placeholder: fszteam.manageevents::lang.backend.events.fields.placeholders.none
+      span: left
+
+    location_address:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.additional
+      label: fszteam.manageevents::lang.backend.events.fields.locaddress
+      placeholder: fszteam.manageevents::lang.backend.events.fields.placeholders.none
+      span: right
+
+    contact_email:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.additional
+      label: fszteam.manageevents::lang.backend.events.fields.email
+      placeholder: fszteam.manageevents::lang.backend.events.fields.placeholders.none
+      span: left
+
+secondaryTabs:
+  fields:
+
+    multidate:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.events.fields.dates
+      type: multidate
+      options:
+        mode: datetimetime
+
+    recur:
+      label: fszteam.manageevents::lang.backend.events.fields.recur
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.date
+      type: dropdown
+      options:
+        none: fszteam.manageevents::lang.backend.events.fields.recuroptions.none
+        daily: fszteam.manageevents::lang.backend.events.fields.recuroptions.daily
+        weekly: fszteam.manageevents::lang.backend.events.fields.recuroptions.weekly
+        every_other_week: fszteam.manageevents::lang.backend.events.fields.recuroptions.everyother
+        monthly: fszteam.manageevents::lang.backend.events.fields.recuroptions.monthly
+        yearly: fszteam.manageevents::lang.backend.events.fields.recuroptions.yearly
+
+    thru:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.events.fields.thru
+      type: datepicker
+      mode: date
+
+
+    calendar:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.events.fields.calendar
+      type: relation
+      placeholder: fszteam.manageevents::lang.backend.events.fields.placeholders.chose
+
+
+    allday:
+      label: fszteam.manageevents::lang.backend.events.fields.allday
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.date
+      type: checkbox
+
+    grouped:
+      label: fszteam.manageevents::lang.backend.events.fields.grouped
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.date
+      type: checkbox
+
+    # visibility:
+    #   label: Visibility
+    #   tab: Publish
+    #   type: balloon-selector
+    #   options:
+    #     - Public
+    #     - Sticky
+    #     - Private
+
+    # status:
+    #   label: Status
+    #   tab: Publish
+    #   type: balloon-selector
+    #   options:
+    #     - Draft
+    #     - Review
+    #     - Published
+
+    featured_images:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.events.fields.images
+      type: fileupload
+      options:
+        mode: image
+        image-width: 127
+        image-height: 127
+
+
+    excluded:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.exclude
+      label: fszteam.manageevents::lang.backend.events.fields.exclude
+      placeholder: null
+      type: multidate
+      mode: date
+
+    event_qty:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.booking
+      label: fszteam.manageevents::lang.backend.events.fields.qty
+      default: 0
+
+    event_price:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.booking
+      label: fszteam.manageevents::lang.backend.events.fields.price
+
+    status:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.booking
+      label: fszteam.manageevents::lang.backend.events.fields.status
+      type: dropdown
+      options:
+        null: fszteam.manageevents::lang.backend.events.fields.statusoptions.none
+        available: fszteam.manageevents::lang.backend.events.fields.statusoptions.available
+        booked: fszteam.manageevents::lang.backend.events.fields.statusoptions.booked
+
+    update_generated_booking_info:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.booking
+      label: fszteam.manageevents::lang.backend.events.fields.update
+      type: dropdown
+      options:
+        null: fszteam.manageevents::lang.backend.events.fields.updateoptions.passive
+        update: fszteam.manageevents::lang.backend.events.fields.updateoptions.update

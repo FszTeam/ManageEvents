@@ -1,0 +1,59 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+  title:
+    label: fszteam.manageevents::lang.backend.events.fields.title
+
+  content:
+    label: fszteam.manageevents::lang.backend.events.fields.content
+    type: richeditor
+    size: huge
+
+tabs:
+  fields:
+
+    excerpt:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.preview
+      label: fszteam.manageevents::lang.backend.events.fields.excerpt
+      type: textarea
+      size: small
+
+secondaryTabs:
+  fields:
+
+    event_date:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.events.fields.date
+      type: datepicker
+      mode: date
+
+    sttime:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.events.fields.sttime
+      type: time
+
+
+    entime:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.events.fields.entime
+      type: time
+
+    event_qty:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.events.fields.qty
+
+    event_price:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.events.fields.price
+
+    status:
+      tab: fszteam.manageevents::lang.backend.events.fields.tabs.date
+      label: fszteam.manageevents::lang.backend.events.fields.status
+      type: dropdown
+      options:
+        null: fszteam.manageevents::lang.backend.events.fields.statusoptions.none
+        available: fszteam.manageevents::lang.backend.events.fields.statusoptions.available
+        booked: fszteam.manageevents::lang.backend.events.fields.statusoptions.booked
